@@ -14,11 +14,8 @@
 </template>
 
 <script>
-import _debounce from 'lodash.debounce'
-// import 'pannellum'
-// import 'pannellum/build/pannellum.css'
-import '../lib/pannellum/pannellum.js'
-import '../lib/pannellum/pannellum.css'
+import 'pannellum'
+import 'pannellum/build/pannellum.css'
 
 export default {
   props: {
@@ -167,11 +164,13 @@ export default {
       if (this.debug) this.info += ' te'
       this.debounceRotate()
     },
-    debounceRotate: _debounce(function () {
+    debounceRotate () {
       // priority of orientation is higher
-      if (this.orientation) this.viewer.startOrientation()
-      else if (this.autoRotate) this.viewer.startAutoRotate()
-    }, 3000),
+      this.$nextTick(function () {
+        if (this.orientation) this.viewer.startOrientation()
+        else if (this.autoRotate) this.viewer.startAutoRotate()
+      })
+    }
   },
 }
 </script>

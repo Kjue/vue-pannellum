@@ -17,7 +17,6 @@
   "author": "Jarvis Niu <jarvisniu@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash.debounce": "^4.0.8",
     "pannellum": "^2.4.1"
   },
   "devDependencies": {
